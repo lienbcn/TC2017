@@ -195,7 +195,7 @@
         title: "Building Footprints",
         minScale: 72223.819286
         */
-        url: "https://services8.arcgis.com/xzqcTVDn0tHsrBQe/arcgis/rest/services/travelers/FeatureServer",
+        url: "https://services8.arcgis.com/xzqcTVDn0tHsrBQe/arcgis/rest/services/travelers2/FeatureServer",
         // renderer: myRenderer,
       });
 
@@ -309,15 +309,15 @@
           type: 'simple',
           symbol: {
             type: 'simple-line',
-            width: 1,
+            width: 0.1,
             color: '#ff0',
           },
           visualVariables: [{
             type: 'opacity',
             field: 'createdWeek',
             stops:[
-              { value: year - 10, opacity: 0 },
-              { value: year, opacity: 1 },
+              { value: year - 100, opacity: 0 },
+              { value: year, opacity: 0.1 },
               { value: year + 1, opacity: 0 },
             ],
           }]
