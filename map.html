@@ -26,6 +26,7 @@
       height: 100%;
       padding: 0;
       margin: 0;
+      background-color: #2b2d2f;
     }
 
     #applicationDiv {
@@ -195,7 +196,7 @@
         title: "Building Footprints",
         minScale: 72223.819286
         */
-        url: "https://services8.arcgis.com/xzqcTVDn0tHsrBQe/arcgis/rest/services/travelers2/FeatureServer",
+        url: "https://services8.arcgis.com/xzqcTVDn0tHsrBQe/arcgis/rest/services/travelers3/FeatureServer",
         // renderer: myRenderer,
       });
 
@@ -211,8 +212,8 @@
       view = new MapView({
         map: map,
         container: "viewDiv",
-        center: [2, 42],
-        zoom: 4,
+        center: [0, 20],
+        zoom: 2,
         /* constraints: {
           snapToZoom: false,
           minScale: 72223.819286
@@ -312,15 +313,27 @@
             width: 0.1,
             color: '#ff0',
           },
-          visualVariables: [{
-            type: 'opacity',
-            field: 'createdWeek',
-            stops:[
-              { value: year - 100, opacity: 0 },
-              { value: year, opacity: 0.1 },
-              { value: year + 1, opacity: 0 },
-            ],
-          }]
+          visualVariables: [
+            {
+              type: 'opacity',
+              field: 'createdWeek',
+              stops:[
+                { value: year - 20, opacity: 0 },
+                { value: year - 5, opacity: 0.2 },
+                { value: year, opacity: 0.6 },
+                { value: year + 1, opacity: 0 },
+              ],
+            },
+            {
+              type: 'color',
+              field: 'originLongitude',
+              stops:[
+                { value: -180, color: '#f00' },
+                { value: 0, color: '#0ff' },
+                { value: 180, color: '#f00' },
+              ],
+            },
+          ]
         };
       }
 
@@ -403,7 +416,7 @@
 
           value += 0.5;
           if (value > 2500) {
-            value = 1500;
+            value = 2340;
           }
 
           setYear(value);
@@ -565,11 +578,11 @@
       <span id="sliderValue"></span>
       <div id="sliderInnerContainer">
         <div id="sliderLabels">
-          <span>1500</span>
+          <span>2340</span>
           <span>2500</span>
         </div>
         <div id="rangeWrapper">
-          <input id="slider" type="range" min="1500" max="2500" step="1" value="1984" />
+          <input id="slider" type="range" min="2340" max="2500" step="1" value="1984" />
         </div>
       </div>
       <div id="playButton" class="esri-widget esri-widget-button toggle-button">
