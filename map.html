@@ -195,7 +195,7 @@
         title: "Building Footprints",
         minScale: 72223.819286
         */
-        url: "https://services8.arcgis.com/xzqcTVDn0tHsrBQe/arcgis/rest/services/test33/FeatureServer",
+        url: "https://services8.arcgis.com/xzqcTVDn0tHsrBQe/arcgis/rest/services/travelers/FeatureServer",
         // renderer: myRenderer,
       });
 
@@ -314,9 +314,9 @@
           },
           visualVariables: [{
             type: 'opacity',
-            field: 'created',
+            field: 'createdWeek',
             stops:[
-              { value: year - 5, opacity: 0 },
+              { value: year - 10, opacity: 0 },
               { value: year, opacity: 1 },
               { value: year + 1, opacity: 0 },
             ],
@@ -402,16 +402,16 @@
           }
 
           value += 0.5;
-          if (value > 2017) {
-            value = 1880;
+          if (value > 2500) {
+            value = 1500;
           }
 
           setYear(value);
 
-          // Update at 30fps
+          // Update at 60fps
           setTimeout(function() {
             requestAnimationFrame(frame);
-          }, 1000 / 30);
+          }, 1000 / 60);
         }
 
         frame();
@@ -565,11 +565,11 @@
       <span id="sliderValue"></span>
       <div id="sliderInnerContainer">
         <div id="sliderLabels">
-          <span>1880</span>
-          <span>2017</span>
+          <span>1500</span>
+          <span>2500</span>
         </div>
         <div id="rangeWrapper">
-          <input id="slider" type="range" min="1880" max="2017" step="1" value="1984" />
+          <input id="slider" type="range" min="1500" max="2500" step="1" value="1984" />
         </div>
       </div>
       <div id="playButton" class="esri-widget esri-widget-button toggle-button">
